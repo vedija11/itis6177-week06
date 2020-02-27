@@ -10,11 +10,19 @@
 
     <script>
       function callApi() {
-        axios.get('http://142.93.55.15:3000')
+        axios.get("http://142.93.55.15:3000")
         .then(resp => {
-          console.log(resp);
+          console.log(resp)
+          var display = document.createElement('div');
+          display.innerHTML = resp.data.datetime;
+          document.getElementById('display').appendChild(display);
         })
       }  
+    </script>
+    <script>
+      setInterval(function() {
+          callApi();
+      }, 10000);
     </script>
   </body>
 </html>
